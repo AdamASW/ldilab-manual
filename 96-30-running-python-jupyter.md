@@ -162,13 +162,35 @@ at an appropriate location in the code (for instance, replacing `module load con
 
 ### Manually
 
-In order to run Jupyter notebooks, do the following, once you have opened the Jupyter Notebook or Jupyter Lab interface:
+In order to run Jupyter Notebooks, do the following, once you have opened the Jupyter Notebook or Jupyter Lab interface:
 
 - Navigate to the directory where the notebook is located
 - Open the notebook
 - Clear all the cells: `Cell` -> `All Output` -> `Clear`
 - Run all the cells: `Cell` -> `Run All`
 - Save the notebook: `File` -> `Save and Checkpoint`
+
+Note that there is a **VSCode extension** that allows you to open .ipynb files directly in VSCode. Simply install the "Jupyter" extension in VSCode.
+
+#### Running with an Environment
+
+You will often have to set up a virtual environment in Python with author-specified requirements when running your notebook. Given your notebook's virtual environment has already been set up, here's how you can run the notebook with a specific environment activated.
+
+First, within your virtual environment, install ipykernel using pip as follows:
+
+```bash
+pip install jupyter ipykernel
+```
+
+Next, add your environment as a Jupyter Kernel as follows:
+
+```bash
+python -m ipykernel install --user --name=<ENVIORNMENT_NAME> --display_name= "<DISPLAY_NAME>"
+```
+
+Here, replace <ENVIRONMENT_NAME> with the name of your virtual environment, and <DISPLAY_NAME> with however you want the kernel to appear.
+
+Now, open your notebook and click the "Kernel" drop-down menu in the top right. You should see an item called "<DISPLAY_NAME>" in the drop-down menu. Click on that item to set the notebook to run with the kernel "<DISPLAY_NAME>", ....
 
 ### From the command line
 
@@ -200,7 +222,15 @@ jupyter nbconvert --to webpdf --allow-chromium-download mynotebook.ipynb
 
 :::{tab-item} Windows
 
-Not sure yet. Needs augmentation.
+In general, running a jupyter notebook on Windows takes the following form:
+
+```bash
+```
+
+However, it will often be important to run a Jupyter Notebook under a specific environment you have created for Jupyter. Given you have already set up your virtual environment, here's how you do this from the command line:
+
+```bash
+```
 
 :::
 
